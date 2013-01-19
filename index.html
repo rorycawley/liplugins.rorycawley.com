@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>LinkedIn API Plugins</title>
+
+		<meta name="description" content="LinkedIn API Plugins">
+		<meta name="author" content="Rory Cawley">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400italic,400,700,700italic' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<script type="text/javascript" src=https://platform.linkedin.com/in.js>
+		    	api_key: hpcbc19u7gw4
+		</script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+    <section data-state="begin">
+						<!--img width="189" height="300" src="img/LinkedinLogoTransparent.png"-->
+
+							<img  id="linkedin" src="img/LinkedinLogoTransparent.png" alt="LinkedIn"> 
+
+        <h3>API Plugins</h1>
+        <h5> TPC Team - GSK 2013</h3>
+	    <script type="IN/MemberProfile" data-id="http://www.linkedin.com/in/rorycawley" data-format="inline" data-related="false"></script>   
+	</section>
+	
+    <section>
+        <h3>Why use the LI Plugins?</h3>
+ 			
+
+        <div style="text-align: left;">
+            <ul>
+                <li>Drives user engagement
+                <li>Maximises ROI
+                <li>Provides productivity improvements
+            </ul>
+        </div>
+    </section>
+	
+
+	
+    <section data-state="alert">
+        <h3>LinkedIn Plugins Terms</h3>
+ 			
+
+        <div style="text-align: left;">
+            <ul>
+                <li>By obtaining and using the LinkedIn Plugins you agree to the <a href="https://developer.linkedin.com/linkedin-plugins-terms-use">Plugins Terms of Use</a>!
+            </ul>
+        </div>
+    </section>
+	
+	
+    <section>
+        <h3>Enable your page for plugins</h3>
+        <div style="text-align: center;">
+			<!--  Add a Sign in with LinkedIn Button -->
+			
+			<ol>
+                <li>Go to <a href="http://developer.linkedin.com/">developer.linkedin.com</a> to get your API key
+                <li>Then add the script below to your page replacing the api_key with your own one
+			</ol>
+			<pre><code contenteditable class="html">&lt;!doctype html&gt;
+&lt;meta charset=utf-8&gt;
+&lt;script src=http://platform.linkedin.com/in.js&gt;
+    	api_key: 1jn6si63x4
+&lt;/script&gt;
+&lt;title&gt;LinkedIn Says - Members first!&lt;/title&gt;
+
+&lt;p&gt;I'm all set to use the LinkedIn Plugins now - let's do this...
+</code></pre>
+
+        </div>
+    </section>
+
+	<section>
+		<section>
+			<h3>Share Button</h3>
+			<div style="text-align: center;">
+				<!--  Add a Share button -->
+				<ul>
+					<li>Enable users to share your website with LinkedIn's professional audience
+					<li>Drive traffic back to your site
+				</ul>			
+
+				<script type="IN/Share" data-counter="right"></script>
+
+				
+				<pre><code contenteditable class="html">&lt;script type="IN/Share" data-counter="right"&gt;&lt;/script&gt;</code></pre>
+			</div>
+		</section>
+		<section>
+			<p>Live Example Share Button: <a href="http://community.advertising.microsoft.com/msa/en/atlas/b/blog/archive/2012/02/10/the-acid-test-provisional-statistics-are-now-available-in-media-console-my-reports.aspx">Microsoft</a></p>
+
+			<img  id="linkedin" src="img/shareMSFT.png" alt="Microsoft Share button"> 
+		</section>
+		<section>
+			<p>Live Example Share Button: <a href="http://heroesworkhere.disney.com/">Disney</a></p>
+
+			<img  id="linkedin" src="img/shareDISNEY.png" alt="Disney Share button"> 
+		</section>
+		
+	</section>
+    <section>
+		<section>
+			<h3>Follow Company Button</h3>
+			<div style="text-align: center;">
+				<!--  Add a follow button -->
+				<ul>
+					<li>Make it easy for professionals to engage with your company
+				</ul>				
+
+				<script type="IN/FollowCompany" data-id="1337" data-counter="right"></script>
+
+				
+				<pre><code contenteditable class="html">&lt;script type="IN/FollowCompany" data-id="1337" 
+	data-counter="right"&gt;
+&lt;/script&gt;</code></pre>
+			</div>
+		</section>    
+		<section>
+			<p>Live Example Follow Company Button: <a href="http://www.kiva.org/">Kiva</a></p>
+
+			<img  id="linkedin" src="img/followKIVA.png" alt="Kiva Follow Company"> 
+		</section>	
+	</section>
+
+    <section>
+		<section>
+			<h3>Member Profile Plugin</h3>
+			<div style="text-align: center;">
+				<!--  Add a profile -->
+				<ul>
+					<li>Enable LinkedIn members to discover common professional connections
+				</ul>			
+				
+
+				<script type="IN/MemberProfile" data-id="http://www.linkedin.com/in/rorycawley" data-format="inline" data-related="false"></script>
+
+				
+				<pre><code contenteditable class="html">&lt;script type="IN/MemberProfile" 
+	data-id="http://www.linkedin.com/in/rorycawley" 
+	data-format="inline" data-related="false"&gt;
+&lt;/script&gt;</code></pre>
+			</div>
+		</section>    
+		<section>
+			<p>Live Example Member Profile: <a href="http://www.memsql.com/about/team/">Memsql</a></p>
+
+			<img  id="linkedin" src="img/memberMEMSQL.png" alt="Memsql Member Profile"> 
+		</section>	
+	</section>
+
+
+	<section>
+		<section>
+			<h3>Sign-in with LinkedIn</h3>
+			<div style="text-align: center;">
+				<!--  Add a Sign in with LinkedIn Button -->
+
+				<ul>
+					<li>Enable users to login/register using their LinkedIn identity
+				</ul>			
+				<script type="in/Login">
+				Hello, <?js= firstName ?> <?js= lastName ?>.
+				</script>
+				
+				<pre><code contenteditable class="html">&lt;script type="in/Login"&gt;
+	Hello, &lt;?js= firstName ?&gt; &lt;?js= lastName ?&gt;.
+&lt;/script&gt;</code></pre>
+			</div>
+		</section>
+		<section>
+			<p>Live Example Member Profile: <a href="https://careers-emtecinc.icims.com/jobs/intro?hashed=0">Emtec</a></p>
+
+			<img  id="linkedin" src="img/siEMTEC.png" alt="Emtec Member Profile"> 
+		</section>	
+	</section>	
+
+
+		
+	<section>	
+		<section>
+
+			<div style="text-align: center;">
+				<!--  Add a company insider -->
+				<h3>Company Insider plugin</h3>
+
+				<ul>
+					<li>Shows users who in their network works at a particular company, the list of new hires and job changes at the company
+					<li>Allow users to follow your company news
+				</ul>				
+				<script type="IN/CompanyInsider" data-id="1337" data-modules="innetwork,newhires,jobchanges"></script>
+
+			
+			</div>
+		</section>	
+		<section>
+						<h3>Company Insider plugin (code)</h3>
+
+			<div style="text-align: center;">
+				<p></p>
+				<pre><code contenteditable class="html">&lt;script type="IN/CompanyInsider" data-id="1337" 
+	data-modules="innetwork,newhires,jobchanges"&gt;
+&lt;/script&gt;</code></pre>
+			</div>
+		</section>  
+		<section>
+			<p>Live Example Company Insider: <a href="http://www.ciena.com/connect/social-media/">Ciena</a></p>
+
+			<img  id="linkedin" src="img/ciCIENA.png" alt="CIENA Company Insider"> 
+		</section>	
+	</section>	
+	
+	<section>
+		<section>
+			<h3>Company profile plugin</h3>
+			<div style="text-align: center;">
+				<!--  Add a company insider -->
+
+				<ul>
+					<li>Displays key company information at-a-glance
+					<li>Help users discover who they know at the company
+				</ul>				
+				
+				<script type="IN/CompanyProfile" data-id="1337" data-format="inline" data-related="false"></script>
+
+				
+				<pre><code contenteditable class="html">&lt;script type="IN/CompanyProfile" data-id="1337" 
+	data-format="inline" data-related="false"&gt;
+&lt;/script&gt;</code></pre>
+			</div>
+		</section>  
+		<section>
+			<p>Live Example Company profile: <a href="http://careers.walmart.com/connect-with-us/">Wallmart</a></p>
+
+			<img  id="linkedin" src="img/cpWALLMART.png" alt="Wallmart Company profile"> 
+		</section>	
+	</section>	
+
+    <section>
+		<section>
+			<h3>Apply with LinkedIn plugin</h3>
+			<div style="text-align: center;">
+				<!--  Add a company insider -->
+
+				
+				<ul>
+					<li>Allows candidates to apply for your jobs using their LinkedIn profiles
+					<li>Integrate with your Applicant Tracking System
+				</ul>			
+				<script type="IN/Apply" data-companyid="1337" data-jobtitle="Technical Product Consultant" data-joblocation="dublin, ireland" data-phone="required" data-email="rcawley@linkedin.com"></script>    
+
+				
+				<pre><code contenteditable class="html">&lt;script type="IN/Apply" data-companyid="1337" 
+	data-jobtitle="Technical Product Consultant" 
+	data-joblocation="ireland" data-phone="required" 
+	data-email="rcawley@linkedin.com"&gt;
+&lt;/script&gt;</code></pre>
+			</div>
+		</section> 
+		<section>
+			<p>Live Example Apply With LinkedIn: <a href="http://jobs.netflix.com/jobsListing.html?function=Engineering">Netflix</a></p>
+
+			<img  id="linkedin" src="img/awliNETFLIX.png" alt="Netflix Apply With LinkedIn"> 
+		</section>	
+	</section>	
+
+	
+	
+
+
+    <section>
+		<section>
+			<h3>Recommend with LinkedIn</h3>
+			<div style="text-align: center;">
+				<!--  Add a company insider -->
+
+				<ul>
+					<li>Enables users to recommend products and services on LinkedIn
+					<li>Drives traffic to your site
+				</ul>			
+				<script type="IN/RecommendProduct" data-company="LinkedIn" data-product="201714" data-counter="right"></script>
+
+				
+				<pre><code contenteditable class="html">&lt;script type="IN/RecommendProduct" data-company="LinkedIn" 
+	data-product="201714" data-counter="right"&gt; 
+&lt;/script&gt;</code></pre>
+			</div>
+		</section>      
+		<section>
+			<p>Live Example Recommend with LinkedIn: <a href="http://jobs.netflix.com/jobsListing.html?function=Engineering">Cathay Pacific</a></p>
+
+			<img  id="linkedin" src="img/rcCATHAY.png" alt="Cathay Pacific Recommend with LinkedIn"> 
+		</section>	
+	</section>	
+	
+
+	
+	<section>
+		<section>
+								<h3>Jobs You May Be Interested In plugin</h3>
+
+			<div style="text-align: center;">
+
+				<!--  Add a JYMBII -->
+
+				<ul>
+					<li>Featured jobs, personalized for each member visiting your site
+				</ul>			
+				<script type="IN/JYMBII" data-format="inline"></script>
+
+				
+			</div>
+		</section>    
+		<section>
+								<h3>Jobs You May Be Interested In plugin (code)</h3>
+
+			<div style="text-align: center;">
+
+
+				
+				<pre><code contenteditable class="html">&lt;script type="IN/JYMBII" data-format="inline"&gt;&lt;/script&gt;</code></pre>
+		
+		</section>
+		<section>
+			<p>Live Example Jobs You May Be Interested In: <a href="http://jobs.dell.com/">Dell</a></p>
+
+			<img  id="linkedin" src="img/jymbiiDELL.png" alt="Dell Jobs You May Be Interested In"> 
+		</section>	
+	</section>		
+
+    <section  data-state="soothe">
+
+        <h1>Thanks!</h1>
+        
+        							<img  id="linkedin" src="img/thank-you-0736-stick-man-dance.gif" alt="Thanks!"> 
+
+        <h6>Coming soon: deck on LinkedIn JavaScript API</h6>
+    </section>
+</div>
+
+			<!-- end of slides -->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+		<script src="js/main.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37762303-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+		
+	</body>
+</html>
