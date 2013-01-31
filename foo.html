@@ -1,0 +1,182 @@
+<!doctype html>
+<meta charset=utf-8>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://pxgrid.github.com/js-flipsnap/js/flipsnap.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		
+		$("#memberConnectionsButton").click(function(){
+		  $("#thejsonConnections").text("Loading the connections...");
+
+		  IN.API.Connections("me")
+			.fields("id", "firstName", "lastName","pictureUrl","publicProfileUrl")
+			.result(displayConnections)
+			.error(displayConnectionsErrors);
+		});
+	});
+	
+	// This is a LinkedIn Connection object
+	function LinkedInConnection(id, fullName, pictureURL, profileURL) {
+	  this.id = id;
+	  this.fullName = fullName;
+	  this.pictureURL = pictureURL;
+	  this.profileURL = profileURL;
+	}
+	
+	// This variable will hold the list of connections sorted by names
+	var sortedNamesOfConnections = [];
+	
+	function displayConnections(connections) {
+		console.log("displayConnections");
+		//member = profiles.values[0];
+		//memberText = "Member id: " + member.id + "\nFirstname: " +  member.firstName + "\nLastname: " + member.lastName;
+		var memberText = "";
+		
+		// 1. Get the list of connections
+		// 2. Sort them by name
+		// 3. populate the text
+
+		var members = connections.values; // The list of members you are connected to
+		for (var member in members) {
+			var memberProfile = members[member];
+			sortedNamesOfConnections.push(new LinkedInConnection(memberProfile.id, memberProfile.firstName + " " + memberProfile.lastName, memberProfile.pictureUrl, memberProfile.publicProfileUrl));
+		}
+
+		// now sort the list of connections by first name, surname
+		sortedNamesOfConnections.sort(function(a,b){return a.fullName.toLowerCase().localeCompare(b.fullName.toLowerCase())});
+	
+		// Populate the connections dropdown with the sorted list of names
+		for (var i = 0; i < sortedNamesOfConnections.length; i++) {
+			var oneProfile = sortedNamesOfConnections[i];
+			//alert("<option value=\"" + oneProfile.id + "\">" + oneProfile.fullName + "</option>");
+			memberText +=  oneProfile.id + " " + oneProfile.fullName + " " + memberProfile.pictureUrl + "\n";
+		}
+		$("#thejsonConnections").text(memberText);
+		
+
+	}
+	
+	// This is called when the connections result comes back
+	function displayProfiles(profiles) {
+		console.log("displayProfiles");
+		var member = profiles.values[0];
+		var memberText = "Member id: " + member.id + "\nFirstname: " +  member.firstName + "\nLastname: " + member.lastName;
+		$("#thejson").text(memberText);
+		// 1. Get the list of connections
+		// 2. Sort them by name
+		// 3. populate the dropdown
+		
+		//var members = connections.values; // The list of members you are connected to
+		//for (var member in members) {
+		//	var memberProfile = members[member];
+		//	sortedNamesOfConnections.push(new LinkedInConnection(memberProfile.id, memberProfile.firstName + " " + memberProfile.lastName, memberProfile.pictureUrl, memberProfile.publicProfileUrl));
+		//}
+		
+		// now sort the list of connections by first name, surname
+		//sortedNamesOfConnections.sort(function(a,b){return a.fullName.toLowerCase().localeCompare(b.fullName.toLowerCase())});
+	
+		// Populate the connections dropdown with the sorted list of names
+		//for (var i = 0; i < sortedNamesOfConnections.length; i++) {
+		//	var oneProfile = sortedNamesOfConnections[i];
+			//alert("<option value=\"" + oneProfile.id + "\">" + oneProfile.fullName + "</option>");
+		//	$("<option value=\"" + oneProfile.id + "\">" + oneProfile.fullName + "</option>").appendTo("#select-members");
+		//}
+		
+		// Clean up the memory
+		//sortedNamesOfConnections = [];
+		  
+		//$(".chzn-select").chosen(); 
+		//$(".chzn-select-deselect").chosen({allow_single_deselect:true});
+	
+		// Show the list of connections	
+		//$('#recommend-a-friend-form').show();
+	
+	}
+	
+	// This is called if there is an error 
+	function displayConnectionsErrors(error) {
+		// don't show the list of connections if we had a problem populating it
+		//$('#recommend-a-friend-form').hide();
+	 
+		console.log(error);
+	}
+	
+	
+	// This is called once we have successfully authorised
+	function onLinkedInAuth() {
+		//IN.API.Profile("me").result(displayProfiles);		
+		console.log("onLinkedInAuth");
+	}
+	
+	// This is when the linkedin framework has loaded
+	function onLinkedInLoad() {
+		// register an event handler to trigger when user authorisation is completed
+		IN.Event.on(IN, "auth", onLinkedInAuth);
+		console.log("onLinkedInLoad");
+		
+	}
+</script>
+
+		<script type="text/javascript" src=https://platform.linkedin.com/in.js>
+		    	api_key: hpcbc19u7gw4
+				onLoad: onLinkedInLoad
+				authorize: true
+		</script>
+
+		
+		
+<style>
+
+div#viewport {
+	box-shadow: 2px 2px 3px #888888 !important;
+    width: 320px !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+}
+
+div#viewport div#flipsnap {
+    width: 960px !important; /* 320px(item width) * 3(item count) */
+}
+
+div#viewport div#flipsnap .item {
+    float: left !important;
+    width: 310px !important;
+    font-size: 50px !important;
+    text-align: center !important;
+    padding: 50px 0 !important;
+    background: #EFEFEF !important;
+    border: 5px solid #999 !important;
+    color: #666 !important;
+}
+</style>
+
+<title>LinkedIn Says - Members first!</title>
+
+<p>I'm all set to use the LinkedIn Plugins now - let's do this...
+
+<script>
+$(document).ready(function () {
+	var flipsnap = Flipsnap('div#viewport div#flipsnap');
+	//$("div#viewport").css("border","3px solid red");
+	//Flipsnap('.flipsnap');
+});
+</script>
+<button id="memberConnectionsButton">Try it</button>
+				<script type="in/Login">
+				Hello, <?js= firstName ?> <?js= lastName ?>.
+				</script>
+
+<div id="viewport">
+    <div id="flipsnap">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+</div>
+
+<p>done it</p>
+<form>
+<textarea rows="10" cols="110" id=thejsonConnections></textarea>
+</form>
